@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
 
 		<link rel="stylesheet" href="css/custom.css">
 
@@ -28,11 +28,70 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>A simple slide</section>
-
 				<section>
-					<section>A slide with a subslide</section>
-					<section>hello you</section>
+					<h1 class="title">Micronaut</h1>
+					<h2 class="subtitle">Cloudy JVM, with risks of microservices</h2>
+				</section>
+
+				<section class="chapter">
+					Pourquoi ce choix ?
+				</section>
+
+				<section data-background-image="assets/monolith.gif"></section>
+
+				</section>
+				<section>
+					<img data-src="assets/monolith.gif">
+				</section>
+
+				<section data-markdown> 
+					<textarea data-template>
+						## Killer Features ?
+					
+						* _Ahead-of-Time_ compilation
+						* Moindre réflexion
+					</textarea>
+				</section>
+
+				<section> 
+					<h3 class="title">Natively cloud native</h3>
+					<section data-markdown>
+						<textarea data-template>
+							* Faible temps de démarrage
+							* Empreinte mémoire réduite
+							* Annotations interprété à la compilation
+							* Compatible _GraalVM_
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							* Service discovery
+							* Cloud function
+							* Cloud environment detection
+							* Vault support
+						</textarea>
+					</section>
+					
+				</section>
+
+				<section class="chapter">
+					Micronaut CLI
+				</section>
+
+				<section class="chapter">
+					Kafka
+				</section>
+
+				<section class="chapter">
+					Scheduling
+				</section>
+
+				<section class="chapter">
+					Monitoring
+				</section>
+
+				<section class="chapter">
+					Circuit-breaker, Fallback, Retry
 				</section>
 
 				<section>
@@ -52,8 +111,8 @@
 				</section>
 	
 				<section>
-					<section>slide with shell subslide</section>
-					<section><web-term path=""/></section>
+					<div>Slide with a shell</div>
+					<div><web-term path=""/></div>
 				</section>
 			</div>
 		</div>

@@ -2,3 +2,22 @@
     padding: 1.3em;
     border-radius: 8px;
 }
+
+h1.title{
+    color: #E55223;
+    text-align: left;
+}
+
+h2.subtitle{
+    color: #15538E;
+    text-align: left;
+}
+
+section.chapter{
+    color: #E55223;
+    font-size: 2em;
+}
+
+.slide-background.chapter{
+    background-color: #15538E;
+}
