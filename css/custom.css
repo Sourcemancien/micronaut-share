@@ -6,16 +6,23 @@
 h1.title{
     color: #E55223;
     text-align: left;
+    text-transform: capitalize;
 }
 
 h2.subtitle{
     color: #15538E;
     text-align: left;
+    text-transform: initial;
 }
 
 section.chapter{
     color: #E55223;
     font-size: 2em;
+}
+
+section>h3.title{
+    text-transform: initial;
+    color: #E55223;
 }
 
 .slide-background.chapter{

@@ -44,14 +44,14 @@ class FakeWindow extends BaseHTMLElement {
             font-size: 18px;
             padding: 2.1em 0 0 0;
             border-radius: 0.4em;
-            background: #ddd;
+            background: rgb(30, 30, 30);
             display: inline-block;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0.25em 0.9em -0.1em rgba(0,0,0,.2);
+            box-shadow: 0 0em 0.5em 0.1em rgba(0,0,0,.2);
             width: 100%;
             height: calc(100% - 40px);
-            background-color: white;
+            background-color: rgb(30, 30, 30);
         }
 
         #bar {
@@ -62,8 +62,7 @@ class FakeWindow extends BaseHTMLElement {
             top: 0;
             padding: 0.3em;
             width: 100%;
-            background: linear-gradient(to bottom, #edeaed 0%, #dddfdd 100%);
-            border-bottom: 2px solid #cbcbcb;
+            border-bottom: 2px solid rgb(30,30,30);
             border-radius: 0.4em 0.4em 0 0;
         }
 
@@ -73,7 +72,7 @@ class FakeWindow extends BaseHTMLElement {
             height: 1.6em;
             width: calc(100% - 6em);
             padding: 0.4em 0.4em 0 0.4em;
-            color: black;
+            color: white;
             text-align: left;
             overflow: hidden;
             white-space: nowrap;
@@ -92,6 +91,7 @@ class FakeWindow extends BaseHTMLElement {
             filter: brightness(110%);
         }
 
+        #black {background-color: rgb(55, 55, 55); border: solid 1px gold;}
         #red {background-color: rgb(255, 90, 82);}
         #yellow {background-color: rgb(230, 192, 41);}
         #green {background-color: rgb(82, 194, 43);}
@@ -118,7 +118,7 @@ class FakeWindow extends BaseHTMLElement {
         return `
         <div id="main">
             <div id="bar">
-                <i id="red"></i><i id="yellow"></i><i id="green"></i>
+                <i id="black"></i><i id="black"></i><i id="black"></i>
                 ${this.title ? `<span id="title">${this.title}</span>` : ''}
                 <slot name="bar"></slot>
             </div>
@@ -359,6 +359,7 @@ class WebTerm extends BaseHTMLElement {
 
         fake-window {
             flex: 1;
+            height: 12em;
         }
 
         fake-window:not(:first-of-type) {
@@ -398,8 +399,7 @@ class WebTerm extends BaseHTMLElement {
         const div = document.createElement('div');
         div.innerHTML = `
         <fake-window title="bash ~ ${this.path}">
-            <a slot="bar" class="newtab" href="#">+</a>
-            <iframe scrolling="no" src="http://localhost:3000/?basedir=${this.path}"></iframe>
+            <iframe scrolling="yes" src="http://localhost:3000/?basedir=${this.path}"></iframe>
         </fake-window>`;
 
         const window = this.shadowRoot.appendChild(div.lastChild);
