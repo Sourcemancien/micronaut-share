@@ -1,0 +1,20 @@
+kafka:
+  consumers:
+    my-group-id:
+      bootstrap.servers: ${KAFKA_SERVER}
+      client.id: ""
+      schema.registry.url: ${KAFKA_REGISTRY_SERVER}
+      auto.register.schema: true
+      auto.offset.reset: earliest
+      enable.auto.commit: true
+      specific.avro.reader: true
+      key.deserializer: "io.confluent.kafka.serializers.KafkaAvroDeserializer"
+      value.deserializer: "io.confluent.kafka.serializers.KafkaAvroDeserializer"
+      security.protocol: "SASL_PLAINTEXT"
+      sasl:
+        mechanism: "SCRAM-SHA-512"
+        jaas.config:
+          "${jaas.module} required username=\"${jaas.username}\" password=\"${jaas.password}\";"
+
+  topics:
+      orders: the-target-topic

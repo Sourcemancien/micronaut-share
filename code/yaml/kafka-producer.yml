@@ -1,0 +1,12 @@
+kafka:
+  producers:
+    simple-producer:
+      bootstrap:
+        server: ${KAFKA_HOST}
+      schema.registry.url: ${KAFKA_REGISTRY_HOST}
+      key.serializer: 
+        "io.confluent.kafka.serializers.KafkaAvroSerializer"
+      value.serializer: 
+        "io.confluent.kafka.serializers.KafkaAvroSerializer"
+  topics:
+    producer: the-target-topic
