@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/solarized.css">
+		<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
 
 		<link rel="stylesheet" href="css/custom.css">
 
@@ -44,16 +46,6 @@
 					<img data-src="assets/monolith.gif">
 				</section>
 
-				<section>
-					<h3 class="title">Killer Features ?</h3>
-					<section data-markdown> 
-						<textarea data-template>							
-							* _Ahead-of-Time_ compilation
-							* Réflexion minimale
-						</textarea>
-					</section>
-				</section>
-
 				<section> 
 					<h3 class="title">Natively cloud native</h3>
 					<section data-markdown>
@@ -66,10 +58,10 @@
 					</section>
 					<section data-markdown>
 						<textarea data-template>
-							* Service discovery
+							* Découverte de service
 							* Cloud function
-							* Cloud environment detection
-							* Vault support
+							* Détection d'environnement Cloud
+							* Intégration Vault
 						</textarea>
 					</section>
 					<section data-markdown>
@@ -82,6 +74,16 @@
 					</section>
 				</section>
 
+				<section>
+					<h3 class="title">Killer Features ?</h3>
+					<section>
+						<ul>
+							<li><em class="keyword-blue">Ahead-of-Time</em> compilation</li>
+							<li class="fragment fade-up">Réflexion minimale</li>
+						</ul>	
+					</section>				
+				</section>
+
 				<section class="chapter">
 					Micronaut CLI
 				</section>
@@ -90,14 +92,25 @@
 					<h3 class="title">Micronaut CLI</h3>
 					<section data-markdown>
 						<textarea data-template>
-							* Initialisation d'appli
-							* Choix de langage
-							* Choix d'outil de build
-							* Profils d'application
+							* Initialisation de projet
+							* Langage
+							* Outil de build
+							* Template d'application
 						</textarea>
 					</section>
-					<section></section>
 					<section><web-term path=""/></section>
+				</section>
+
+
+				<section class="chapter">
+					Configuration
+				</section>
+	
+				<section>
+					<h3 class="title">Configuration</h3>
+					<section>
+						
+					</section>				
 				</section>
 
 				<section class="chapter">
@@ -106,14 +119,60 @@
 
 				<section>
 					<h3 class="title">Kafka</h3>
+					<section>
+						Implémentation minimaliste
+
+						<ul>
+							<li class="fragment fade-up">Déclarer son service Kafka avec <em class="keyword-orange">@KafkaListener</em> ou <em class="keyword-orange">@KafkaClient</em></li>
+							<li class="fragment fade-up">Souscrire des topics avec <em class="keyword-orange">@Topic</em></li>
+							<li class="fragment fade-up">Redirection avec <em class="keyword-orange">@SendTo</em></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h3 class="title">Kafka</h3>
+					<section>
+						Client déclaratif
+							
+						<pre class="fragment fade-up"><code data-sample='code/java/DeclarativeKafkaProducer.java'></code></pre>
+						<pre class="fragment fade-up"><code data-sample='code/yaml/kafka-producer.yml'></code></pre>
+					</section>
+				</section>
+				<section>
+					<h3 class="title">Kafka</h3>
+					<section>
+						Consumer minimaliste
+						<pre class="fragment fade-up"><code data-sample='code/java/KafkaConsumer.java'></code></pre>
+					</section>
+					<section><pre><code data-sample='code/yaml/kafka-consumer.yml'></code></pre></section>
+				</section>
+
+				<section>
+					<h3 class="title">Kafka</h3>
+					<section> 
+						<div>Gestion des offsets</div>
+
+						<ul>
+							<li class="fragment fade-up"><em class="keyword-orange">auto</em>, gestion par kafka selon son polling</li>
+							<li class="fragment fade-up"><em class="keyword-orange">disabled</em>, la passion du commit artisanal
+								<ul class="fragment fade-up">
+									<li>commit manuel</li>
+									<li>utiliser une stratégie de Micronaut</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
 					<section data-markdown>
 						<textarea data-template>
-							* Déclaratif vs Programmatique
+							Stratégies de commit
+
+							_SYNC_ <!-- .element: class="fragment fade-up" -->
+
+							_ASYNC_ <!-- .element: class="fragment fade-up" -->
+							
+							__PER_RECORD_ <!-- .element: class="fragment fade-up" -->
 						</textarea>
 					</section>
-					<section><pre><code data-sample='code/java/DeclarativeKafkaProducer.java'></code></pre></section>
-					<section></section>
-					<section></section>
 				</section>
 
 				<section class="chapter">
@@ -144,26 +203,26 @@
 					Circuit-breaker, Fallback, Retry
 				</section>
 
-				<section>
-					Take some Java sample
-					<pre><code data-sample='code/java/DeclarativeKafkaProducer.java'></code></pre>
+
+				<section class="chapter">
+					Podium
 				</section>
 
 				<section>
-					And a few JS too
-					<pre><code data-sample='code/js/HelloWorld.js'></code></pre>
+					<h3 class="title">Podium</h3>
+					<section data-markdown>
+						<textarea data-template>
+							* Le plus appréciable : _Le déclaratif_ <!-- .element: class="fragment fade-up" -->
+
+							* Le plus suprenant : 
+
+							* Le plus pénible : _La synchro de l'IDE_ <!-- .element: class="fragment fade-up" -->
+
+							* Le plus déceptif : 
+						</textarea>
+					</section>
 				</section>
 
-
-				<section>
-					You won't mind a config file
-					<pre><code data-sample='code/yaml/application.yml'></code></pre>
-				</section>
-	
-				<section>
-					<div>Slide with a shell</div>
-					<div><web-term path=""/></div>
-				</section>
 			</div>
 		</div>
 
