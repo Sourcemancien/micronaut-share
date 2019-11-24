@@ -1,15 +1,29 @@
+.reveal {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: #657b83;
+}
+
 .reveal pre code{
     padding: 1.3em;
     border-radius: 8px;
 }
 
+.reveal em {
+    color: #E55223;
+}
+
 h1.title{
+    font-family: Helvetica;
     color: #E55223;
     text-align: left;
     text-transform: capitalize;
 }
 
 h2.subtitle{
+    font-family: Helvetica;
+    font-size: 1.8em;
     color: #15538E;
     text-align: left;
     text-transform: initial;
@@ -23,8 +37,17 @@ section.chapter{
 section>h3.title{
     text-transform: initial;
     color: #E55223;
+    font-family: sans-serif;
 }
 
 .slide-background.chapter{
     background-color: #15538E;
+}
+
+.keyword-blue{
+    color: #15538E;
+}
+
+.keyword-orange{
+    color: #E55223;
 }
