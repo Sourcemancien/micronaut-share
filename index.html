@@ -113,23 +113,42 @@
 
 						<ul>
 							<li class="fragment fade-up">un fichier principal <em class="keyword-orange">application</em> 
-								<ul>
+								<ul class="fragment fade-up">
 									<li>.json,</li>
 									<li>.properties,</li>
 									<li>.yml,</li>
 									<li>.groovy</li>
 								</ul>
 							</li>
-							<li class="fragment fade-up">des fichiers supplémentaire suffixés par profils actifs</li>
+							<br/>
+							<li class="fragment fade-up">des fichiers supplémentaire suffixés par profils actifs
+								<ul class="fragment fade-up">
+									<li>application-k8s</li>
+									<li>application-gcp</li>
+								</ul>
+							</li>
 						</ul>
-					</section>	
+					</section>
+
+					<section>
+						<pre><code data-sample='code/java/PropertiesInclusion.java'></code></pre>
+					</section>
+				</section>
+				<section>
+					<h3 class="title">Configuration</h3>
 					<section>
 						<p>Variables d'environnement</p>
-						
-						<ul>
-							<li class="fragment fade-up">inclusion dans les properties</li>
-						</ul>
-					</section>				
+					
+						<p class="fragment fade-up">Inclusion automatique dans les properties</p>
+
+						<img class="fragment fade-up" data-src="assets/properties_conversion_table.png">
+						<em class="fragment fade-up">Consommateur si beaucoup de variables avec de nombreux séparateurs</em>
+					</section>
+
+					<section>
+						<p>Désactiver la conversion des variables</p>
+						<pre><code data-sample='code/java/DisableConversion.java'></code></pre>
+					</section>
 				</section>
 
 				<section class="chapter">
@@ -203,8 +222,6 @@
 					<h3 class="title">Scheduling</h3>
 					<section></section>
 					<section></section>
-					<section></section>
-					<section></section>
 				</section>
 
 				<section class="chapter">
@@ -215,6 +232,14 @@
 					<h3 class="title">Monitoring</h3>
 					<section></section>
 					<section></section>
+				</section>
+
+				<section class="chapter">
+					Data
+				</section>
+
+				<section>
+					<h3 class="title">Data</h3>
 					<section></section>
 					<section></section>
 				</section>
@@ -235,9 +260,9 @@
 					<h3 class="title">Podium</h3>
 					<section data-markdown>
 						<textarea data-template>
-							* Le plus appréciable : _Le déclaratif_ <!-- .element: class="fragment fade-up" -->
+							* Le plus pratique : _Le déclaratif_ <!-- .element: class="fragment fade-up" -->
 
-							* Le plus suprenant : 
+							* Le plus appréciable :
 
 							* Le plus pénible : _La synchro de l'IDE_ <!-- .element: class="fragment fade-up" -->
 
