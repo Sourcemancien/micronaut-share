@@ -12,6 +12,7 @@
 
 .reveal em {
     color: #E55223;
+    text-shadow: #1b0a0440 0px 0px 2px;
 }
 
 h1.title{
@@ -19,6 +20,7 @@ h1.title{
     color: #E55223;
     text-align: left;
     text-transform: capitalize;
+    text-shadow: #1b0a0440 0px 0px 4px;
 }
 
 h2.subtitle{
@@ -27,17 +29,20 @@ h2.subtitle{
     color: #15538E;
     text-align: left;
     text-transform: initial;
+    text-shadow: #1b0a0440 0px 0px 4px;
 }
 
 section.chapter{
     color: #E55223;
     font-size: 2em;
+    text-shadow: #ffffff42 0px 0px 7px;
 }
 
 section>h3.title{
     text-transform: initial;
     color: #E55223;
     font-family: sans-serif;
+    text-shadow: #1b0a0440 0px 0px 4px;
 }
 
 .slide-background.chapter{
@@ -45,9 +50,11 @@ section>h3.title{
 }
 
 .keyword-blue{
+    text-shadow: #1b0a0440 0px 0px 2px;
     color: #15538E;
 }
 
 .keyword-orange{
+    text-shadow: #1b0a0440 0px 0px 2px;
     color: #E55223;
 }

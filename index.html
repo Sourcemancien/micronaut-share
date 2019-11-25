@@ -61,7 +61,7 @@
 							* Découverte de service
 							* Cloud function
 							* Détection d'environnement Cloud
-							* Intégration Vault
+							* Intégration _Vault_
 						</textarea>
 					</section>
 					<section data-markdown>
@@ -90,13 +90,13 @@
 
 				<section>
 					<h3 class="title">Micronaut CLI</h3>
-					<section data-markdown>
-						<textarea data-template>
-							* Initialisation de projet
-							* Langage
-							* Outil de build
-							* Template d'application
-						</textarea>
+					<section>
+						<ul>
+							<li class="fragment fade-up">Initialisation de projet</li>
+							<li class="fragment fade-up">Langage</li>
+							<li class="fragment fade-up">Outil de build</li>
+							<li class="fragment fade-up">Template d'application</li>
+						</ul>
 					</section>
 					<section><web-term path=""/></section>
 				</section>
@@ -109,7 +109,26 @@
 				<section>
 					<h3 class="title">Configuration</h3>
 					<section>
+						<p>Properties</p>
+
+						<ul>
+							<li class="fragment fade-up">un fichier principal <em class="keyword-orange">application</em> 
+								<ul>
+									<li>.json,</li>
+									<li>.properties,</li>
+									<li>.yml,</li>
+									<li>.groovy</li>
+								</ul>
+							</li>
+							<li class="fragment fade-up">des fichiers supplémentaire suffixés par profils actifs</li>
+						</ul>
+					</section>	
+					<section>
+						<p>Variables d'environnement</p>
 						
+						<ul>
+							<li class="fragment fade-up">inclusion dans les properties</li>
+						</ul>
 					</section>				
 				</section>
 
@@ -120,7 +139,7 @@
 				<section>
 					<h3 class="title">Kafka</h3>
 					<section>
-						Implémentation minimaliste
+						<p>Implémentation minimaliste</p>
 
 						<ul>
 							<li class="fragment fade-up">Déclarer son service Kafka avec <em class="keyword-orange">@KafkaListener</em> ou <em class="keyword-orange">@KafkaClient</em></li>
@@ -142,6 +161,7 @@
 					<h3 class="title">Kafka</h3>
 					<section>
 						Consumer minimaliste
+
 						<pre class="fragment fade-up"><code data-sample='code/java/KafkaConsumer.java'></code></pre>
 					</section>
 					<section><pre><code data-sample='code/yaml/kafka-consumer.yml'></code></pre></section>
@@ -150,7 +170,7 @@
 				<section>
 					<h3 class="title">Kafka</h3>
 					<section> 
-						<div>Gestion des offsets</div>
+						<p>Gestion des offsets</p>
 
 						<ul>
 							<li class="fragment fade-up"><em class="keyword-orange">auto</em>, gestion par kafka selon son polling</li>
@@ -203,6 +223,9 @@
 					Circuit-breaker, Fallback, Retry
 				</section>
 
+				<section class="chapter">
+					Documentation
+				</section>
 
 				<section class="chapter">
 					Podium
