@@ -13,8 +13,8 @@ kafka:
       security.protocol: "SASL_PLAINTEXT"
       sasl:
         mechanism: "SCRAM-SHA-512"
-        jaas.config:
-          "${jaas.module} required username=\"${jaas.username}\" password=\"${jaas.password}\";"
-
+        jaas.config: ${jaas.module} required username=\
+          ${jaas.username} password=\
+          ${jaas.password}
   topics:
       orders: the-target-topic
