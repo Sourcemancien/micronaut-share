@@ -157,6 +157,15 @@
 				</section>
 
 				<section class="chapter">
+					Bean & Context
+				</section>
+
+				<section>
+					<h3 class="title">Bean & Context</h3>
+				</section>
+
+
+				<section class="chapter">
 					Kafka
 				</section>
 
@@ -220,16 +229,12 @@
 				</section>
 
 				<section class="chapter">
-					Scheduling
+					Data
 				</section>
 
 				<section>
-					<h3 class="title">Scheduling</h3>
-					<section>
-						<p>Annotations pour créer des tâches périodiques</p>
-						<p class="fragment fade-up">Pas de job cron nécessaire</p>
-
-					</section>
+					<h3 class="title">Data</h3>
+					<section></section>
 					<section></section>
 				</section>
 
@@ -239,18 +244,69 @@
 
 				<section>
 					<h3 class="title">Monitoring</h3>
-					<section></section>
-					<section></section>
+					<section>
+						Intégration de Micrometer
+					</section>
+					<section>
+
+					</section>
 				</section>
 
 				<section class="chapter">
-					Data
+					Scheduling
 				</section>
 
 				<section>
-					<h3 class="title">Data</h3>
-					<section></section>
-					<section></section>
+					<h3 class="title">Scheduling</h3>
+					<section>
+						<p>Pas de job cron nécessaire</p>
+						<p class="fragment fade-up">Annotations pour créer des tâches périodiques</p>
+						<p class="fragment fade-up">Déclaratif ou programmatique</p>
+					</section>
+					<section>
+						Par annotation
+						<pre class="fragment fade-up"><code class="java" data-trim data-noescape>
+							@Scheduled(fixedDelay="1m")
+							void doSomethingGreat(){
+							}
+						</code></pre>
+
+						<pre class="fragment fade-up"><code class="java" data-trim data-noescape>
+							@Scheduled(fixedDelay="1m", initialDelay="10s")
+							void doSomethingGreat(){
+							}
+						</code></pre>
+
+						<pre class="fragment fade-up"><code class="java" data-trim data-noescape>
+							@Scheduled(cron="0 0 2 * * *")
+							void doSomethingGreat(){
+							}
+						</code></pre>
+					</section>
+					<section>
+						Via code
+
+						<pre class="fragment fade-up"><code class="java" data-trim data-noescape>
+							@Inject
+							​@Named(TaskExecutors.SCHEDULED)
+							​TaskScheduler taskScheduler;
+						</code></pre>
+
+						<pre class="fragment fade-up"><code class="java" data-trim data-noescape>
+							taskScheduler.schedule(delay, runnableTask);
+
+							taskScheduler.scheduleAtFixedRate(initialDelay, periodicity, runnableTask);
+
+							taskScheduler.scheduleWithFixedDelay(initialDelay, delay, runnableTask);
+						</code></pre>
+					</section>
+					<section>
+						<p style="text-shadow:#ffffff42 0px 0px 7px;">Attention au scope et aux états</p>
+						<ul style="list-style-type:none;">
+							<li class="fragment fade-up"><em>Singleton</em> alors une instance unique entre les exécutions</li>
+							<li class="fragment fade-up"><em>Prototype</em> alors une instance par exécution</li>
+						</ul>
+					</section>
 				</section>
 
 				<section class="chapter">
