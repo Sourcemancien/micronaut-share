@@ -41,11 +41,11 @@
 
 				<section data-background-image="assets/monolith.gif">
 					<p style="color:white;position:absolute;text-shadow:#ffffff42 0px 0px 7px;">LE MONOLITHE</p>
-					<ul style="color:white;list-style-type:none;position:absolute;left:80%;text-shadow:#ffffff42 0px 0px 7px;">
-						<li class="fragment fade-up">stock</li>
-						<li class="fragment fade-up">supply</li>
-						<li class="fragment fade-up">prix</li>
-						<li class="fragment fade-up">performance éco.</li>
+					<ul style="color:white;list-style-type:none;position:absolute;left:80%;text-shadow:#0c0a0afa 0px 0px 4px;">
+						<li class="fragment fade-up">Stock</li>
+						<li class="fragment fade-up">Supply</li>
+						<li class="fragment fade-up">Prix</li>
+						<li class="fragment fade-up">Perf. éco.</li>
 						<li class="fragment fade-up">etc</li>
 					</ul>
 				</section>
@@ -162,6 +162,29 @@
 
 				<section>
 					<h3 class="title">Bean & Context</h3>
+					<section>
+						<p>Scopes</p>
+
+						<ul style="list-style-type:none;">
+							<li><span><em>@Singleton</em></span> <span class="fragment fade-up">- unique</span></li>
+							<li><span><em>@Infrastructure</em></span> <span class="fragment fade-up">- irremplaçable</span></li>
+							<li><span><em>@Prototype</em></span> <span class="fragment fade-up">- par accès</span></li>
+							<li><span><em>@ThreadLocal</em></span> <span class="fragment fade-up">- par Thread Local</span></li>
+							<li><span><em>@RequestScope</em></span> <span class="fragment fade-up">- par requête HTTP</span></li>
+						</ul>
+					</section>
+
+					<section>
+						<p>Contrôles avancés</p>
+
+						<ul style="list-style-type:none;">
+							<li><span><em>@Context</em></span> <span class="fragment fade-up">- charger au lancement</span></li>
+							<li><span><em>@Refreshable</em></span> <span class="fragment fade-up">- pilotagle par endpoint</span></li>
+							<li><span><em>@Replaces</em></span> <span class="fragment fade-up">- surcharger une instance</span></li>
+							<li><span><em>@Primary</em></span> <span class="fragment fade-up">- implémentation prioritaire</span></li>
+							<li><span><em>@Requires</em></span> <span class="fragment fade-up">- instanciable sous conditions</span></li>
+						</ul>
+					</section>
 				</section>
 
 
@@ -229,13 +252,66 @@
 				</section>
 
 				<section class="chapter">
-					Data
+					Data & Cache
 				</section>
 
 				<section>
 					<h3 class="title">Data</h3>
-					<section></section>
-					<section></section>
+
+				</section>
+
+				<section>
+					<h3 class="title">Data</h3>
+					<section>
+						Définir les datasources dans la configuration
+
+						<pre class="fragment fade-up"><code data-sample='code/yaml/datasources.yml'></code></pre>
+					</section>
+					<section>
+						Injecter par nom
+
+						<pre class="fragment fade-up"><code data-sample='code/java/DataSources.java'></code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h3 class="title">Redis</h3>
+					<section>
+						Module de configuration Redis
+
+						<pre><code class="json" data-trim data-noescape>
+							compile "io.micronaut.configuration:micronaut-redis-lettuce"
+						</code></pre>
+
+						<pre><code class="yml" data-trim data-noescape>
+							redis:
+							 servers:
+							  products:
+							   uri: redis://${host1}
+							  prices:
+							   uri: redis://${host2}
+						</code></pre>
+
+						<pre><code class="java" data-trim data-noescape>
+						@Inject @Named("prices")
+						StatefulRedisConnection<String, String> connection;
+						</code></pre>
+					</section>
+					
+				</section>
+
+				<section>
+					<h3 class="title">Cache</h3>
+					<section>
+						Définir les datasources dans la configuration
+
+						<pre class="fragment fade-up"><code data-sample='code/yaml/datasources.yml'></code></pre>
+					</section>
+					<section>
+						Injecter par nom
+
+						<pre class="fragment fade-up"><code data-sample='code/java/DataSources.java'></code></pre>
+					</section>
 				</section>
 
 				<section class="chapter">
@@ -243,9 +319,13 @@
 				</section>
 
 				<section>
-					<h3 class="title">Monitoring</h3>
+					<h3 class="title">Scrapper</h3>
 					<section>
 						Intégration de Micrometer
+
+						Importer un module par Scrapper
+
+						Activer le endpoint dédié
 					</section>
 					<section>
 
@@ -314,7 +394,28 @@
 				</section>
 
 				<section class="chapter">
+					Tests unitaires
+				</section>
+
+				<section>
+					<h3 class="title">Test unitaires</h3>
+					<section>
+					</section>
+				</section>
+
+				<section class="chapter">
 					Documentation
+				</section>
+
+				<section>
+					<h3 class="title">Documentation</h3>
+					<section>
+						Inégale
+
+						Cas trop simplistes
+
+						Parfois pas à jour
+					</section>
 				</section>
 
 				<section class="chapter">

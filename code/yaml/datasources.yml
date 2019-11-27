@@ -1,0 +1,18 @@
+datasources:
+  default:
+    url: jdbc:h2:mem:default
+    username: sa
+    password: ""
+  postgre:
+    url: jdbc:postgresql://localhost:5432/schema
+    username: user
+    password: secretPassword
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        generate_statistics: false
+        session:
+          events.log: false
+          show_sql: false

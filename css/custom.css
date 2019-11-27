@@ -13,6 +13,7 @@
 .reveal em {
     color: #E55223;
     text-shadow: #1b0a0440 0px 0px 2px;
+    font-family: monospace;
 }
 
 h1.title{
