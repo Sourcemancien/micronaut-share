@@ -1,4 +1,6 @@
-# What is the purpose of the project ?
+A modest feedback following many months using Micronaut framework
+
+# What about the base of the slides ?
 
 This repo is based on the work from the existing repo hakimel/reveal.js and dgageot/demoit. 
 
