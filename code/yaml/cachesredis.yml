@@ -1,0 +1,6 @@
+redis:
+    uri: redis://${REDIS_HOST}
+    caches:
+        my-cache:
+            expire-after-write: 1h
+            

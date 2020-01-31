@@ -1,10 +1,10 @@
 micronaut:
-    metrics:
+  metrics:
+    enabled: true
+    export:
+      prometheus:
         enabled: true
-        export:
-            prometheus:
-                enabled: true
-                step: PT1M #every minute
+        step: PT1M #every minute
 
 endpoints:
   prometheus:

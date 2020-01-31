@@ -1,0 +1,7 @@
+micronaut:
+    caches:
+      my-cache:
+        expire-after-access: 24h
+        maximumSize: 200
+      another-cache:
+        maximumSize: 1000

@@ -40,12 +40,13 @@
 				</section>
 
 				<section data-background-image="assets/monolith.gif">
-					<p style="color:white;position:absolute;text-shadow:#ffffff42 0px 0px 7px;">LE MONOLITHE</p>
+					<p style="color:white;position:absolute;text-shadow:#ffffff42 0px 0px 7px;">Le Monolithe</p>
 					<ul style="color:white;list-style-type:none;position:absolute;left:80%;text-shadow:#0c0a0afa 0px 0px 4px;">
 						<li class="fragment fade-up">Stock</li>
 						<li class="fragment fade-up">Supply</li>
 						<li class="fragment fade-up">Prix</li>
-						<li class="fragment fade-up">Perf. éco.</li>
+						<li class="fragment fade-up">Inventaires</li>
+						<li class="fragment fade-up">Data</li>
 						<li class="fragment fade-up">etc</li>
 					</ul>
 				</section>
@@ -257,11 +258,6 @@
 
 				<section>
 					<h3 class="title">Data</h3>
-
-				</section>
-
-				<section>
-					<h3 class="title">Data</h3>
 					<section>
 						Définir les datasources dans la configuration
 
@@ -303,32 +299,50 @@
 				<section>
 					<h3 class="title">Cache</h3>
 					<section>
-						Définir les datasources dans la configuration
+						Définir le comportement du cache dans la configuration
 
-						<pre class="fragment fade-up"><code data-sample='code/yaml/datasources.yml'></code></pre>
+						<pre class="fragment fade-up"><code data-sample='code/yaml/caches.yml'></code></pre>
 					</section>
 					<section>
 						Injecter par nom
 
-						<pre class="fragment fade-up"><code data-sample='code/java/DataSources.java'></code></pre>
+						<pre class="fragment fade-up"><code data-sample='code/java/Caches.java'></code></pre>
+					</section>
+					<section>
+						Avec Redis
+
+						<pre class="fragment fade-up"><code data-sample='code/yaml/cachesredis.yml'></code></pre>
 					</section>
 				</section>
 
 				<section class="chapter">
-					Monitoring
+					Monitoring & Metrics
 				</section>
 
 				<section>
 					<h3 class="title">Scrapper</h3>
 					<section>
-						Intégration de Micrometer
+						<p>Intégration de <em>Micrometer</em></p>
 
-						Importer un module par Scrapper
+						<p>Importer un module par scrapper</p>
 
-						Activer le endpoint dédié
+						<p>Activer le endpoint dédié</p>
 					</section>
 					<section>
+						<p>Usage avec Prometheus</p>
+						
+						<pre class="fragment fade-up"><code data-sample='code/gradle/prometheus.js'></code></pre>
 
+						<pre class="fragment fade-up"><code data-sample='code/yaml/prometheus.yml'></code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h3 class="title">Health</h3>
+					<section>
+						<p>Même besoin de micronaut-management</p>
+
+						<pre class="fragment fade-up"><code data-sample='code/yaml/health.yml'></code></pre>
 					</section>
 				</section>
 
@@ -390,7 +404,48 @@
 				</section>
 
 				<section class="chapter">
-					Circuit-breaker, Fallback, Retry
+					Die & Retry
+				</section>
+
+				<section>
+					<h3 class="title">Retryable</h3>
+					<section>
+						<p>Prévoir l'imprévisible dans le monde du microservice</p>
+
+						<p class="fragment fade-up">Annotation <em>@Retryable</em> pour améliorer la robustesse</p>
+
+						<pre class="fragment fade-up"><code class="java" data-trim data-noescape>
+						@Retryable( attempts = "5", delay = "2s" )
+						public float getPrice(long item) {
+						}
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h3 class="title">Fallback</h3>
+					<section>
+						<p>Prévoir une échappatoire</p>
+
+						<p class="fragment fade-up">Annotation <em>@Fallback</em> pour garantir des opérations minimales</p>
+						
+						<p class="fragment fade-up">Combiné avec <em>@Retryable</em> ou <em>@Recoverable</em></p>
+					</section>
+				</section>
+
+				<section>
+					<h3 class="title">Circuit-breaker</h3>
+					
+					<p>Eviter d'engendrer une surcharge</p>
+					<p>Temporiser pendant une indisponibilité</p>
+
+					<p class="fragment fade-up">Annotation <em>@CircuitBreaker</em> est une variante du <em>@Retryable</em></p>
+					<pre class="fragment fade-up"><code class="java" data-trim data-noescape>
+					@CircuitBreaker(reset = "30s")
+					public float getPrice(long item) {
+					}
+					</code></pre>
+
 				</section>
 
 				<section class="chapter">
@@ -400,6 +455,33 @@
 				<section>
 					<h3 class="title">Test unitaires</h3>
 					<section>
+						<p>Compatible Spock, Junit5 et KotlinTest</p>
+
+						<p>Annotation <em>@MicronautTest</em> pour activer le context d'application</p>
+
+						<p class="fragment fade-up">Quelques comportements indésirables...</p>
+					</section>
+				</section>
+
+				<section>
+					<h3 class="title">Mock & Surcharge</h3>
+					<section>
+						<p>Annotation <em>@MockBean</em> pour injecter un mock dans le context</p>
+						
+						<p class="fragment fade-up">Ne préserve pas d'utiliser un <em>@Inject</em> pour accéder au mock</p>
+
+						<p class="fragment fade-up">Annotation <em>@CircuitBreaker</em> est une variante du <em>@Retryable</em></p>
+						<pre class="fragment fade-up"><code class="java" data-trim data-noescape>
+						@Inject
+						ProductService productService;
+
+						@MockBean(ProductService.class) 
+						ProductService productService() {
+							return mock(ProductService.class); 
+						}
+						</code></pre>
+
+						<p class="fragment fade-up">Quelques effets inattendus...</p>
 					</section>
 				</section>
 
@@ -414,7 +496,7 @@
 
 						Cas trop simplistes
 
-						Parfois pas à jour
+						Parfois pas très à jour
 					</section>
 				</section>
 
@@ -428,11 +510,11 @@
 						<textarea data-template>
 							* Le plus pratique : _Le déclaratif_ <!-- .element: class="fragment fade-up" -->
 
-							* Le plus appréciable :
+							* Le plus appréciable : _Les diverses sécurités intégrées_ <!-- .element: class="fragment fade-up" -->
 
 							* Le plus pénible : _La synchro de l'IDE_ <!-- .element: class="fragment fade-up" -->
 
-							* Le plus déceptif : 
+							* Le plus déceptif : _La couche de tests unitaires_ <!-- .element: class="fragment fade-up" -->
 						</textarea>
 					</section>
 				</section>
